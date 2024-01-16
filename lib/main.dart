@@ -34,6 +34,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  // Method for Elevated Button "Split"
+  // Opens BillPage page
   void _goToBillPage(){
     setState(() {
 
@@ -48,49 +50,67 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      // Background Color
       backgroundColor: Color(0xff435585),
+
       body: Column(
         children: [
+          // Main Title
           Expanded(
             flex: 30,
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+
+                  // Main Title Text
                   const Text("SplitMyBill",
                         style: TextStyle(
                           fontSize: 50,
                           fontStyle: FontStyle.italic,
                           fontWeight: FontWeight.bold,
                           color: Color(0xffF5E8C7),
+
+                          //Shadow Effect
                           shadows: <Shadow>[
                             Shadow(
                               offset: Offset(-5, 6),
                               blurRadius: 5,
                               color: Colors.black
                             ),
+
                           ]
                         )
                   ),
                 ]
             ),
           ),
+
+          //Button to move to BillPage
           Expanded(
           flex: 70,
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+
+                //Button to move to BillPage
                 ElevatedButton(
+                  // Button style
                   style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xff2fd09e),
                   foregroundColor: Color(0xff000000),
                   minimumSize:Size(300, 100),
                   ),
+
+                  // Press command with method
                   onPressed: () {
                     _goToBillPage();
                   },
+
                   child:
+                      // Button Text and Style
                         const Text("Split",
                             style: TextStyle(
                             fontSize: 40,
