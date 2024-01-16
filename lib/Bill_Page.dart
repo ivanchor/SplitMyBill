@@ -72,6 +72,9 @@ class _BillPageState extends State<BillPage> {
                   child: TextField(
                     controller: priceController,
                     keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}'))
+                    ],
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20
