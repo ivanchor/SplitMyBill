@@ -48,6 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff435585),
       body: Column(
         children: [
           Expanded(
@@ -56,11 +57,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text("SplitMyBill",
+                  const Text("SplitMyBill",
                         style: TextStyle(
-                          fontSize: 40,
+                          fontSize: 50,
                           fontStyle: FontStyle.italic,
-                          fontWeight: FontWeight.bold
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xffF5E8C7),
+                          shadows: <Shadow>[
+                            Shadow(
+                              offset: Offset(-5, 6),
+                              blurRadius: 5,
+                              color: Colors.black
+                            ),
+                          ]
                         )
                   ),
                 ]
@@ -74,16 +83,15 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                  backgroundColor:Colors.green,
-                  foregroundColor:Colors.white,
-                  shadowColor: Colors.greenAccent,
+                  backgroundColor: Color(0xff2fd09e),
+                  foregroundColor: Color(0xff000000),
                   minimumSize:Size(300, 100),
                   ),
                   onPressed: () {
                     _goToBillPage();
                   },
                   child:
-                        Text("Bill",
+                        const Text("Split",
                             style: TextStyle(
                             fontSize: 40,
                         )

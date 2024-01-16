@@ -27,7 +27,7 @@ class _BillPageState extends State<BillPage> {
     });
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => MyHomePage(title: 'Home Page')),
+      MaterialPageRoute(builder: (context) => const MyHomePage(title: 'Home Page')),
     );
   }
 
@@ -37,6 +37,7 @@ class _BillPageState extends State<BillPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff435585),
       body: Column(
         children: [
           Expanded(
@@ -47,12 +48,15 @@ class _BillPageState extends State<BillPage> {
                     onPressed: () {
                       _goToHomePage();
                     },
-                    child:
-                    Text("Back",
-                        style: TextStyle(
-                          fontSize: 10,
-                        )
+                    style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.only(left: 20, right: 20)
                     ),
+                    child:
+                      const Text("Back",
+                          style: TextStyle(
+                            fontSize: 20,
+                          )
+                      ),
                 ),
               ],
             ),
@@ -68,11 +72,28 @@ class _BillPageState extends State<BillPage> {
                   child: TextField(
                     controller: priceController,
                     keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        prefixText: "\$",
-                        labelText: 'Total Price'
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20
                     ),
+                    decoration: const InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white, width: 3),
+                        ),
+
+                        prefixText: "\$ ",
+                        prefixStyle: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20
+                        ),
+
+                        labelText: 'Total Price',
+                        labelStyle: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25
+                        )
+                    ),
+                    //style:
                   ),
                 ),
               ]
@@ -90,9 +111,22 @@ class _BillPageState extends State<BillPage> {
                     inputFormatters: [
                       FilteringTextInputFormatter.digitsOnly,
                     ],
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Total People'
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20
+                    ),
+
+                    decoration: const InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white, width: 3),
+                        ),
+
+                        prefixText: "  ",
+                        labelText: 'Total People',
+                        labelStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: 25
+                        )
                     ),
                   ),
                 ),
@@ -107,16 +141,16 @@ class _BillPageState extends State<BillPage> {
                     onPressed: () {
                       _calculateCost();
                       },
+                    style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.all(20)
+                    ),
                     child:
-                      Text("Calculate Cost",
+                      const Text("Calculate Cost",
                       style: TextStyle(
                         fontSize: 25,
                         )
                       ),
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.all(20)
-                    )
-                  ),
+                    ),
                 ],
               ),
           ),
@@ -124,8 +158,15 @@ class _BillPageState extends State<BillPage> {
             flex: 23,
             child: Column(
                 children: [
-                  Text('\$' + calculatedCost,
+                  const Text('Cost per person',
                     style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25
+                    ),),
+
+                  Text('\$' + calculatedCost,
+                    style: const TextStyle(
+                      color: Colors.white,
                       fontSize: 25,
                     ),
                   ),
